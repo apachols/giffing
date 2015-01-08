@@ -8,5 +8,7 @@ module.exports = {
     uri: 'mongodb://localhost/giffing-dev'
   },
 
+  contentPath: './content',
+
   seedDB: true
 };
