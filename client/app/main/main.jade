@@ -1,0 +1,20 @@
+div(ng-include='"components/navbar/navbar.html"')
+
+header#banner.hero-unit
+  .container
+    h1 'Allo, 'Allo!
+    p.lead Kick-start your next web app with Angular Fullstack
+
+.container
+  .row
+    .col-lg-12
+      h1.page-header Features:
+      ul.nav.nav-tabs.nav-stacked.col-md-4.col-lg-4.col-sm-6(ng-repeat='thing in awesomeThings')
+        li
+          a(href='#', tooltip='{{thing.info}}')
+            | {{thing.name}}
+
+footer.footer
+  .container
+    p
+      | Nadams
