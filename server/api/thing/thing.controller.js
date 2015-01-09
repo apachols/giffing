@@ -21,8 +21,7 @@ exports.index = function(req, res) {
 
   for(var i in files) {
     if (!files.hasOwnProperty(i)) continue;
-    var name = { name: files[i], info: 'suck it'};
-    filenames.push(name);
+    filenames.push(files[i]);
   }
 
   res.json(filenames);

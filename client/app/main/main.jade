@@ -7,11 +7,7 @@ header#banner.hero-unit
   .row
     .col-lg-12
       h1.page-header Gifs:
-      ul.nav.nav-tabs.nav-stacked.col-md-4.col-lg-4.col-sm-6(ng-repeat='thing in awesomeThings')
-        li
-          a(ng-click='setFilename(thing.name)')
-            | {{thing.name}}
-      img(ng-src='content/{{filename}}')
+      img(ng-src='content/{{contentList.active()}}')
 
 footer.footer
   .container
