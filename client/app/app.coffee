@@ -17,6 +17,9 @@ angular.module 'giffingApp', [
 .run ($rootScope, contentList, timerService, $document)->
   console.log 'wat'
 
+  contentList.loadFiles().then ()->
+    console.log 'file load finished yall'
+
   $document.bind 'keydown', (e) ->
     # console.log 'keydown', e.which
     switch e.which

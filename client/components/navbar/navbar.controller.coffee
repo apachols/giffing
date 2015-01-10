@@ -3,8 +3,8 @@
 angular.module 'giffingApp'
 .controller 'NavbarCtrl', ($scope, $location) ->
   $scope.menu = [
-    title: 'Home'
-    link: '/'
+    # title: 'Home'
+    # link: '/'
   ]
   $scope.isCollapsed = true
 

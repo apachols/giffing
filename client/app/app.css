@@ -31,6 +31,10 @@
  * App-wide Styles
  */
 
+body {
+  height: 2500px;
+}
+
 .browsehappy {
     margin: 0.2em 0;
     background: #ccc;
