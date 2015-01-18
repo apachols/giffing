@@ -1,18 +1,18 @@
 'use strict'
 
 angular.module 'giffingApp'
-.factory 'timerService', ($interval, $rootScope)->
+.factory 'timerService', ($interval, $rootScope) ->
   selected = 0
   speeds = [ 5000, 10000, 15000, 20000, 25000, 30000, 45000, 60000, 180000, 300000 ]
 
   promise = null
 
   tick = () ->
-    console.log 'tick'
+    console.log 'tick', speeds[selected]
     $rootScope.$emit 'tick'
 
-  max = (left, right)-> if left < right then right else left
-  min = (left, right)-> if left < right then left else right
+  max = (left, right) -> if left < right then right else left
+  min = (left, right) -> if left < right then left else right
 
   self = {
     restart: () ->
