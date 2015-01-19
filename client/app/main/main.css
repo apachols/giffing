@@ -44,6 +44,11 @@ body {
   height: 100vh;
   max-width: 100vw;
   max-height: 100vh;
+  background-size: contain;
+  background-color: black;
+  background-attachment: scroll;
+  background-position: center;
+  background-repeat:no-repeat;
 }
 
 .footer {

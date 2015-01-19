@@ -32,11 +32,6 @@ angular.module 'giffingApp'
 
       # @todo THIS IS AN EVIL HACK, FIX IT.  Why does setting the URL blow the other two away?
       body = angular.element('body')
-      body.css 'background','url('+imageUrl+') no-repeat'
-
-      body.css 'background-size','contain'
-      body.css 'background-color','black'
-      body.css 'background-attachment','scroll'
-      body.css 'background-position', 'center'
+      body.css 'background-image','url('+imageUrl+')'
   }
   return self
