@@ -1,6 +1,5 @@
-h1 HELLO {{message}}
-
-//- div(ng-include='"components/navbar/navbar.html"')
+h1.keystrokeMessage(display-message="keystroke")
+h1.keystrokeMessage(display-message="info")
 
 //- header#banner.hero-unit
 //-   .container
@@ -10,8 +9,3 @@ h1 HELLO {{message}}
 //-     .col-lg-12
 //-       h1.page-header Gifs:
 //-       img(ng-src='content/{{contentList.active()}}')
-
-//- footer.footer
-//-   .container
-//-     p
-//-       | Brought to you by Nadams

@@ -6,6 +6,9 @@ angular.module 'giffingApp'
   active = null
 
   self = {
+    getCurrent: () ->
+      if active is null then return '' else return content[active]
+
     loadFiles: () ->
       return $http.get('/api/things').success (files) ->
         content = files

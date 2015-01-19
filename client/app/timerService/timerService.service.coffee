@@ -6,15 +6,24 @@ angular.module 'giffingApp'
   speeds = [ 5000, 10000, 15000, 20000, 25000, 30000, 45000, 60000, 180000, 300000 ]
 
   promise = null
+  playing = false
 
   tick = () ->
-    console.log 'tick', speeds[selected]
     $rootScope.$emit 'tick'
 
   max = (left, right) -> if left < right then right else left
   min = (left, right) -> if left < right then left else right
 
   self = {
+    displayPlayOrPause: () ->
+      if playing then "playing" else "paused"
+
+    displayCurrentSpeed: () ->
+      return (self.getCurrentSpeed()/1000)+'s'
+
+    getCurrentSpeed: () ->
+      return speeds[selected]
+
     restart: () ->
       if self.stop() then self.start()
 
@@ -24,19 +33,17 @@ angular.module 'giffingApp'
     faster: () ->
       selected = max selected-1, 0
       self.restart()
-      console.log 'timer faster', selected
 
     slower: () ->
       selected = min selected+1, speeds.length-1
       self.restart()
-      console.log 'timer slower', selected
 
     start: () ->
-      console.log 'timer start', speeds[selected]
-      promise = $interval tick, speeds[selected]
+      playing = true
+      promise = $interval tick, self.getCurrentSpeed()
 
     stop: () ->
-      console.log 'timer stop', promise
+      playing = false
       return $interval.cancel promise
   }
 
