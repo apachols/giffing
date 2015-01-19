@@ -2,10 +2,21 @@
 
 angular.module 'giffingApp'
 .directive 'displayMessage', ->
+
   template: '<div></div>'
+
   restrict: 'A'
+
   link: (scope, element, attrs) ->
-    messageKey = attrs.displayMessage
-    scope.$on 'displayMessage', (event, messageObject)->
+
+    {fader, displayMessage:messageKey} = attrs
+
+    scope.$on 'displayMessage', (event, messageObject) ->
       toDisplay = messageObject[messageKey]
-      if toDisplay then element.text toDisplay
+      if toDisplay 
+        element.text toDisplay
+
+        if fader
+          element.stop(true, true)
+          element.show()
+          element.fadeOut parseInt(fader)

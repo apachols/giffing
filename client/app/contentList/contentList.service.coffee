@@ -6,9 +6,6 @@ angular.module 'giffingApp'
   active = null
 
   self = {
-    getCurrent: () ->
-      if active is null then return '' else return content[active]
-
     loadFiles: () ->
       return $http.get('/api/things').success (files) ->
         content = files
@@ -22,13 +19,11 @@ angular.module 'giffingApp'
     next: () ->
       return if not content.length
       active = (active + 1 + content.length) % content.length
-      console.log 'next', active, content[active]
       self.setImage()
 
     back: () ->
       return if not content.length
       active = (active - 1 + content.length) % content.length
-      console.log 'back', active, content[active]
       self.setImage()
 
     setImage: (imageUrl) ->

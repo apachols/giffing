@@ -19,7 +19,7 @@ angular.module 'giffingApp'
       if playing then "playing" else "paused"
 
     displayCurrentSpeed: () ->
-      return (self.getCurrentSpeed()/1000)+'s'
+      if playing then (self.getCurrentSpeed()/1000)+'s' else ' '
 
     getCurrentSpeed: () ->
       return speeds[selected]

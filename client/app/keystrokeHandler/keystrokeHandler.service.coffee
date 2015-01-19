@@ -23,7 +23,9 @@ angular.module 'giffingApp'
       $rootScope.$apply () ->
         timerService.toggle()
         $rootScope.$broadcast 'displayMessage', {
-          'keystroke': timerService.displayPlayOrPause()
+          'keypress': 'SPACE',
+          'action': timerService.displayPlayOrPause(),
+          'timer': timerService.displayCurrentSpeed()
         }
       return true
 
@@ -32,8 +34,10 @@ angular.module 'giffingApp'
         contentList.back()
         timerService.restart()
         $rootScope.$broadcast 'displayMessage', {
-          'keystroke': 'back',
-          'info': contentList.getCurrent()
+          'keypress': "<",
+          'action': 'back',
+          'info': contentList.active()
+          'timer': timerService.displayCurrentSpeed()
         }
       return true
 
@@ -42,8 +46,10 @@ angular.module 'giffingApp'
         contentList.next()
         timerService.restart()
         $rootScope.$broadcast 'displayMessage', {
-          'keystroke': 'forward',
-          'info': contentList.getCurrent()
+          'keypress': ">",
+          'action': 'forward',
+          'info': contentList.active(),
+          'timer': timerService.displayCurrentSpeed()
         }
       return true
 
@@ -51,8 +57,9 @@ angular.module 'giffingApp'
       $rootScope.$apply () ->
         timerService.slower()
         $rootScope.$broadcast 'displayMessage', {
-          'keystroke': 'slower',
-          'info': timerService.displayCurrentSpeed()
+          'keypress': "+",
+          'action': 'slower',
+          'timer': timerService.displayCurrentSpeed()
         }
       return true
 
@@ -60,8 +67,9 @@ angular.module 'giffingApp'
       $rootScope.$apply () ->
         timerService.faster()
         $rootScope.$broadcast 'displayMessage', {
-          'keystroke': 'faster',
-          'info': timerService.displayCurrentSpeed()
+          'keypress': "-",
+          'action': 'faster',
+          'timer': timerService.displayCurrentSpeed()
         }
       return true
 
