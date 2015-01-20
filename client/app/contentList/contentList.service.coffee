@@ -30,7 +30,6 @@ angular.module 'giffingApp'
       imageUrl = imageUrl || './content/' + content[active]
       console.log "setImage", imageUrl
 
-      # @todo THIS IS AN EVIL HACK, FIX IT.  Why does setting the URL blow the other two away?
       body = angular.element('body')
       body.css 'background-image','url('+imageUrl+')'
   }

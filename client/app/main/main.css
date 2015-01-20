@@ -25,19 +25,9 @@
 .message {
   display: inline;
   color: #FF0000;
+  background-color: rgba(0,0,0,0.5);
 }
 
-.visible {
-  visibility: visible;
-  opacity: 1;
-  transition: opacity 2s linear;
-}
-
-.hidden {
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s 2s, opacity 2s linear;
-}
 
 body {
   width: 100vw;

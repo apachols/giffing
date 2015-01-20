@@ -13,7 +13,7 @@ angular.module 'giffingApp'
 
     scope.$on 'displayMessage', (event, messageObject) ->
       toDisplay = messageObject[messageKey]
-      if toDisplay 
+      if typeof toDisplay isnt undefined
         element.text toDisplay
 
         if fader
