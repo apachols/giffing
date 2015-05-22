@@ -18,6 +18,16 @@ angular.module 'giffingApp'
         when 190 then do self.forward     and e.preventDefault()
         when 187 then do self.slower      and e.preventDefault()
         when 189 then do self.faster      and e.preventDefault()
+        when 83  then do self.shuffle      and e.preventDefault()
+
+    shuffle: () ->
+      $rootScope.$apply () ->
+        contentList.shuffle()
+        $rootScope.$broadcast 'displayMessage', {
+          'keypress': 's',
+          'action': 'shuffle'
+        }
+      return true
 
     playOrPause: () ->
       $rootScope.$apply () ->

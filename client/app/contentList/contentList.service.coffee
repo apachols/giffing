@@ -6,6 +6,9 @@ angular.module 'giffingApp'
   active = null
 
   self = {
+    shuffle: () ->
+      content = _.shuffle( content )
+
     loadFiles: () ->
       return $http.get('/api/things').success (files) ->
         content = files
