@@ -13,6 +13,9 @@ angular.module 'giffingApp'
       return $http.get('/api/things').success (files) ->
         content = files
         active = if content.length? then 0 else null
+        # @TODO make 'shuffling by default' configurable
+        # ... lol nobody will do this ever
+        self.shuffle()
         self.setImage()
 
     active: () ->

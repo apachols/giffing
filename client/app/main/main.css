@@ -39,6 +39,7 @@ body {
   background-attachment: scroll;
   background-position: center;
   background-repeat:no-repeat;
+  overflow: hidden;
 }
 
 .footer {
@@ -47,3 +48,57 @@ body {
     margin-top: 70px;
     border-top: 1px solid #E5E5E5;
 }
+
+.topcorner {
+  position: absolute;
+  padding: 10px;
+  top: 0;
+  right: 0;
+  text-align: right;
+  line-height: 1.2em;
+  -moz-animation: fadeout 2s ease-in 8s forwards;
+  -webkit-animation: fadeout 2s ease-in 8s forwards;
+  -o-animation: fadeout 2s ease-in 8s forwards;
+  animation: fadeout 2s ease-in 8s forwards;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+.topcorner:hover {
+  -moz-animation: undo 2s ease-in 1s;
+  -webkit-animation: undo 2s ease-in 1s;
+  -o-animation: undo 2s ease-in 1s;
+  animation: undo 2s ease-in 1s;
+}
+
+.topcorner > p {
+  margin: 0px;
+  color: rgb(84, 84, 84);
+}
+
+.topcorner a:link, a:visited {
+  color: rgb(0, 76, 128);
+}
+
+@keyframes fadeout {
+  to {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes fadeout {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes undo {
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes undo {
+  to {
+    opacity: 1;
+  }
+}
+
