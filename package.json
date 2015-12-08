@@ -12,6 +12,7 @@
     "lodash": "^3.10.1"
   },
   "devDependencies": {
+    "connect-livereload": "~0.4.0",
     "grunt": "~0.4.4",
     "grunt-angular-templates": "^0.5.4",
     "grunt-asset-injector": "^0.1.0",
@@ -58,12 +59,11 @@
     "karma-phantomjs-launcher": "~0.1.4",
     "karma-requirejs": "~0.2.1",
     "karma-script-launcher": "~0.1.0",
-    "livereload": "^0.4.0",
     "load-grunt-tasks": "^3.3.0",
     "supertest": "~0.11.0"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=4.2.0"
   },
   "scripts": {
     "start": "node server/app.js",
