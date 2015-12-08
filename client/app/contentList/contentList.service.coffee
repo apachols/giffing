@@ -1,9 +1,10 @@
 'use strict'
 
 angular.module 'giffingApp'
-.factory 'contentList', ($http)->
+.factory 'contentList', ($http, $rootScope)->
   content = []
   active = null
+  contentDir = './content/'
 
   self = {
     shuffle: () ->
@@ -32,10 +33,13 @@ angular.module 'giffingApp'
       active = (active - 1 + content.length) % content.length
       self.setImage()
 
-    setImage: (imageUrl) ->
-      imageUrl = imageUrl || './content/' + content[active]
+    setImage: () ->
+      imageUrl = contentDir + content[active]
 
       body = angular.element('body')
       body.css 'background-image','url('+imageUrl+')'
+
+      # pre-load the next image (talking to futureImage controller)
+      $rootScope.$broadcast 'showImage', contentDir + content[active+1]
   }
   return self

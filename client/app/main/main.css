@@ -102,3 +102,9 @@ body {
   }
 }
 
+img.future {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+  opacity: 0;
+}
