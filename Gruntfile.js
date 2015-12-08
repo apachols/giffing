@@ -9,20 +9,7 @@ module.exports = function (grunt) {
     localConfig = {};
   }
 
-  // Load grunt tasks automatically, when needed
-  require('jit-grunt')(grunt, {
-    express: 'grunt-express-server',
-    useminPrepare: 'grunt-usemin',
-    ngtemplates: 'grunt-angular-templates',
-    cdnify: 'grunt-google-cdn',
-    protractor: 'grunt-protractor-runner',
-    injector: 'grunt-asset-injector',
-    buildcontrol: 'grunt-build-control'
-  });
-
-  // Time how long tasks take. Can help when optimizing build times
-  require('time-grunt')(grunt);
-
+  require('load-grunt-tasks')(grunt);
   // Define the configuration for all the tasks
   grunt.initConfig({
 
@@ -193,14 +180,6 @@ module.exports = function (grunt) {
       }
     },
 
-    // Debugging with node inspector
-    'node-inspector': {
-      custom: {
-        options: {
-          'web-host': 'localhost'
-        }
-      }
-    },
 
     // Use nodemon to run server in debug mode with an initial breakpoint
     nodemon: {
@@ -422,8 +401,7 @@ module.exports = function (grunt) {
       ],
       debug: {
         tasks: [
-          'nodemon',
-          'node-inspector'
+          'nodemon'
         ],
         options: {
           logConcurrentOutput: true

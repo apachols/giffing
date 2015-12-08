@@ -34,7 +34,6 @@ angular.module 'giffingApp'
 
     setImage: (imageUrl) ->
       imageUrl = imageUrl || './content/' + content[active]
-      console.log "setImage", imageUrl
 
       body = angular.element('body')
       body.css 'background-image','url('+imageUrl+')'

@@ -34,7 +34,6 @@ angular.module 'giffingApp'
       $rootScope.$apply () ->
         timerService.toggle()
         $rootScope.$broadcast 'displayMessage', {
-          'keypress': 'SPACE',
           'action': timerService.displayPlayOrPause()
         }
       return true

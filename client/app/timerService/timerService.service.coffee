@@ -28,7 +28,7 @@ angular.module 'giffingApp'
       if self.stop() then self.start()
 
     toggle: () ->
-      if self.playing then self.stop() else self.start()
+      if playing then self.stop() else self.start()
 
     faster: () ->
       selected = max selected-1, 0
