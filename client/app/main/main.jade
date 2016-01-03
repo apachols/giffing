@@ -1,10 +1,28 @@
 h1
   &nbsp;
-  div.message(display-message="timer")
+  div.message(display-message="timer" fader=2000)
   &nbsp;&nbsp;
   div.message(display-message="keypress" fader=1000)
   &nbsp;&nbsp;
   div.message(display-message="action" fader=1000)
+
+.topcorner
+  p Giffing, by Adam Pacholski.&nbsp;
+    a(href='https://github.com/apachols/giffing') @GitHub
+  p Thx to gif artists, sources&nbsp;
+    a(href='https://github.com/apachols/giffing') here.
+  a(href='https://open.spotify.com/genre/chill') Need music?
+  p &nbsp;
+  p
+    u Controls
+  p &lt; &gt;: prev/next
+  p [space]: pause/play
+  p - +: slower/faster
+  p s: (re)shuffle
+
+
+div(ng-controller="futureImage")
+  img.future(ng-src="{{imgsrc}}")
 
 //- header#banner.hero-unit
 //-   .container

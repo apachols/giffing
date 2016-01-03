@@ -9,20 +9,7 @@ module.exports = function (grunt) {
     localConfig = {};
   }
 
-  // Load grunt tasks automatically, when needed
-  require('jit-grunt')(grunt, {
-    express: 'grunt-express-server',
-    useminPrepare: 'grunt-usemin',
-    ngtemplates: 'grunt-angular-templates',
-    cdnify: 'grunt-google-cdn',
-    protractor: 'grunt-protractor-runner',
-    injector: 'grunt-asset-injector',
-    buildcontrol: 'grunt-build-control'
-  });
-
-  // Time how long tasks take. Can help when optimizing build times
-  require('time-grunt')(grunt);
-
+  require('load-grunt-tasks')(grunt);
   // Define the configuration for all the tasks
   grunt.initConfig({
 
@@ -102,26 +89,12 @@ module.exports = function (grunt) {
       gruntfile: {
         files: ['Gruntfile.js']
       },
-      livereload: {
-        files: [
-          '{.tmp,<%= yeoman.client %>}/{app,components}/**/*.css',
-          '{.tmp,<%= yeoman.client %>}/{app,components}/**/*.html',
-          '{.tmp,<%= yeoman.client %>}/{app,components}/**/*.js',
-          '!{.tmp,<%= yeoman.client %>}{app,components}/**/*.spec.js',
-          '!{.tmp,<%= yeoman.client %>}/{app,components}/**/*.mock.js',
-          '<%= yeoman.client %>/assets/images/{,*//*}*.{png,jpg,jpeg,gif,webp,svg}'
-        ],
-        options: {
-          livereload: true
-        }
-      },
       express: {
         files: [
           'server/**/*.{js,json}'
         ],
-        tasks: ['express:dev', 'wait'],
+        tasks: ['express:dev'],
         options: {
-          livereload: true,
           nospawn: true //Without this option specified express won't be reloaded
         }
       }
@@ -193,14 +166,6 @@ module.exports = function (grunt) {
       }
     },
 
-    // Debugging with node inspector
-    'node-inspector': {
-      custom: {
-        options: {
-          'web-host': 'localhost'
-        }
-      }
-    },
 
     // Use nodemon to run server in debug mode with an initial breakpoint
     nodemon: {
@@ -422,8 +387,7 @@ module.exports = function (grunt) {
       ],
       debug: {
         tasks: [
-          'nodemon',
-          'node-inspector'
+          'nodemon'
         ],
         options: {
           logConcurrentOutput: true
@@ -560,25 +524,20 @@ module.exports = function (grunt) {
     },
   });
 
-  // Used for delaying livereload until after server has restarted
-  grunt.registerTask('wait', function () {
-    grunt.log.ok('Waiting for server reload...');
-
-    var done = this.async();
-
-    setTimeout(function () {
-      grunt.log.writeln('Done waiting!');
-      done();
-    }, 1500);
-  });
-
   grunt.registerTask('express-keepalive', 'Keep grunt running', function() {
     this.async();
   });
 
   grunt.registerTask('serve', function (target) {
     if (target === 'dist') {
-      return grunt.task.run(['build', 'env:all', 'env:prod', 'express:prod', 'wait', 'open', 'express-keepalive']);
+      return grunt.task.run([
+       'build',
+       'env:all',
+       'env:prod',
+       'express:prod',
+       'open',
+       'express-keepalive'
+      ]);
     }
 
     if (target === 'debug') {
@@ -601,7 +560,6 @@ module.exports = function (grunt) {
       'wiredep',
       'autoprefixer',
       'express:dev',
-      'wait',
       'open',
       'watch'
     ]);

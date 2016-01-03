@@ -2,8 +2,8 @@
 
 angular.module 'giffingApp'
 .factory 'timerService', ($interval, $rootScope) ->
-  selected = 0
-  speeds = [ 5000, 10000, 15000, 20000, 25000, 30000, 45000, 60000, 180000, 300000 ]
+  selected = 2
+  speeds = [ 2500, 5000, 7500, 10000, 12500, 15000, 20000, 25000, 30000, 45000, 60000, 180000, 300000 ]
 
   promise = null
   playing = false
@@ -28,7 +28,7 @@ angular.module 'giffingApp'
       if self.stop() then self.start()
 
     toggle: () ->
-      if not self.stop() then self.start()
+      if playing then self.stop() else self.start()
 
     faster: () ->
       selected = max selected-1, 0
@@ -46,5 +46,7 @@ angular.module 'giffingApp'
       playing = false
       return $interval.cancel promise
   }
+  # start timer on load
+  self.start()
 
   return self

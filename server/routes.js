@@ -12,7 +12,9 @@ module.exports = function(app) {
   // Insert routes below
   app.use('/api/things', require('./api/thing'));
 
-  app.use('/content', express.static(__dirname + '/../content'));
+  app.use('/content', express.static(__dirname + '/../content', {
+    maxAge: 31536000000
+  }));
 
   // All undefined asset or api routes should return a 404
   app.route('/:url(api|auth|components|app|bower_components|assets)/*')

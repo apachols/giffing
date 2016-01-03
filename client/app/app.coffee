@@ -15,10 +15,8 @@ angular.module 'giffingApp', [
   $locationProvider.html5Mode true
 
 .run (contentList, keystrokeHandler, $rootScope) ->
-  console.log 'wat'
 
-  contentList.loadFiles().then () ->
-    console.log 'file load finished yall'
+  contentList.loadFiles()
 
   keystrokeHandler.start()
 
