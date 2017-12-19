@@ -1,4 +1,10 @@
-All credit to the hypnotoad(s):
+
+Animated gif web player / visualizer - check out http://giffing.metal-heart.org for a demo!
+
+## Special Thanks
+
+This project demo currently uses gifs from these talented and awesome animated gif artists:
+
 * http://beesandbombs.tumblr.com/
 * http://hexeosis.tumblr.com/
 * http://www.anokafaruqee.com
@@ -15,7 +21,7 @@ Add this or something like it to your nginx config:
 ```
 server {
     listen 80;
-    server_name helpimstoned.com giffing.metal-heart.org;
+    server_name adampacholski.com giffing.metal-heart.org;
     location / {
         root [the public directory];
         index index.html;
@@ -34,6 +40,3 @@ server {
 
 Run the program with something like:
 `forever start dist/server/app.js`
-
-## Suggest Gifs
-Send links to gifs@metal-heart.org
